@@ -1,0 +1,116 @@
+.scroll-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #ff6b0a;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 100;
+}
+
+.scroll-top-btn--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top-btn:hover {
+  background-color: #e55a00;
+}
+
+.theme-toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: 2px solid #ff6b0a;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+
+.theme-toggle-btn:hover {
+  background-color: rgba(255, 107, 10, 0.1);
+}
+
+[data-theme='dark'] a {
+  color: var(--accent-color);
+}
+
+[data-theme='dark'] button {
+  color: var(--primary-text-color);
+}
+
+[data-theme='dark'] svg {
+  color: var(--primary-text-color);
+}
+
+.load-more-btn {
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 24px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.load-more-btn:hover {
+  background-color: #e55a00;
+  transform: translateY(-2px);
+}
+
+.load-more-btn:active {
+  transform: translateY(0);
+}
+
+[data-theme='dark'] .load-more-btn {
+  background-color: var(--accent-color);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.load-more-btn.is-loading {
+  position: relative;
+  color: transparent;
+  pointer-events: none;
+}
+
+.load-more-btn.is-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.load-more-btn.is-hidden {
+  display: none;
+}
