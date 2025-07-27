@@ -1,8 +1,10 @@
 //Логіка сторінки Home
-import { getCategoriesList } from './js/products-api';
-import { renderCategories } from './js/render-function';
+import { getCategoriesList, getProductsList } from './js/products-api';
+import { renderCategories, renderProducts } from './js/render-function';
 
 async function homePage() {
   renderCategories(await getCategoriesList());
+  const response = await getProductsList();
+  renderProducts(response.products);
 }
 homePage();
