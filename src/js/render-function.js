@@ -31,3 +31,8 @@ export function renderProducts(products) {
 
   refs.productsList.insertAdjacentHTML('beforeend', markup);
 }
+
+export function clearList() {
+  refs.divNotFound.classList.remove('not-found--visible');
+  refs.productsList.innerHTML = '';
+}
