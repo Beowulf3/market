@@ -1,25 +1,36 @@
 import refs from './refs';
 import { loadIdProduct } from './products-api.js';
+import { getCartProducts } from './storage.js';
 
-// зміна теми 
+// зміна теми
 export function themeToggle() {
-    refs.themeToggleBtn.addEventListener('click', () => {
-        const html = document.documentElement;
-        const currentTheme = html.dataset.theme;
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        html.dataset.theme = newTheme;
-        localStorage.setItem('site-theme', newTheme);
-    });
+  refs.themeToggleBtn.addEventListener('click', () => {
+    const html = document.documentElement;
+    const currentTheme = html.dataset.theme;
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    html.dataset.theme = newTheme;
+    localStorage.setItem('site-theme', newTheme);
+  });
 }
 
 //модальне вікно продукту-->
 
 //вікриття
 export function openModalProduct() {
-    refs.modalProduct.classList.add('modal--is-open');
+  refs.modalProduct.classList.add('modal--is-open');
 }
 //закриття
 export function closeModalProduct() {
-    refs.modalProduct.classList.remove('modal--is-open');
+  refs.modalProduct.classList.remove('modal--is-open');
 }
 
+export function checkLsCart(id) {
+  const cartList = getCartProducts();
+  const btnText = cartList.includes(id) ? 'Remove from cart' : 'Add to cart';
+  return btnText;
+}
+
+export function updateCartCounter() {
+  const cartList = getCartProducts();
+  refs.cartCounter.innerHTML = cartList.length;
+}

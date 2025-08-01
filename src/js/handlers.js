@@ -23,3 +23,11 @@ export async function handleClickCategories(event) {
     }
   }
 }
+
+export function handleClickCart(event) {
+  if (event.target.classList.contains('modal-product__btn--cart')) {
+    const currentBtn = event.target;
+    if (currentBtn.textContent === 'Add to cart') {
+    }
+  }
+}
