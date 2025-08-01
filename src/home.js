@@ -1,5 +1,9 @@
 //Логіка сторінки Home
-import { handleClickCategories } from './js/handlers';
+import {
+  handleClickCategories,
+  searchProduct,
+  clearInput,
+} from './js/handlers';
 import {
   getCategoriesList,
   getProductsList,
@@ -14,6 +18,7 @@ import {
 } from './js/helpers.js';
 import { changeTheme } from './js/storage.js';
 import { modalProductRender } from './js/modal.js';
+import { formToJSON } from 'axios';
 
 async function homePage() {
   renderCategories(await getCategoriesList());
@@ -43,3 +48,6 @@ refs.modalProduct.addEventListener('click', event => {
     closeModalProduct();
   }
 });
+
+refs.form.addEventListener('submit', searchProduct);
+refs.clearInputBtn.addEventListener('click', clearInput);
