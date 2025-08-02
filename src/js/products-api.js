@@ -25,7 +25,9 @@ export async function getProductsList(currentPage = 1) {
 export async function getProductsListByCategory(category, currentPage = 1) {
   try {
     const response = await axios.get(
-      `https://dummyjson.com/products/category/${category}?limit=12&skip=${(currentPage - 1) * 12}`
+      `https://dummyjson.com/products/category/${category}?limit=12&skip=${
+        (currentPage - 1) * 12
+      }`
     );
     return response.data;
   } catch (error) {
@@ -40,8 +42,20 @@ export async function loadIdProduct(id) {
     const productId = response.data;
     console.log('Loading product:', id);
     return productId;
-  }
-  catch (error) {
+  } catch (error) {
     console.log(error);
+  }
+}
+export async function getProductsByName(name, currentPage = 1) {
+  try {
+    const response = await axios.get(
+      `https://dummyjson.com/products/search?q=${name}&limit=12&skip=${
+        (currentPage - 1) * 12
+      }`
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error.message);
+    throw new Error('Something went wrong!');
   }
 }

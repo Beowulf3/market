@@ -6,4 +6,7 @@ export default {
   modalProduct: document.querySelector('.modal'),
   modalProductContent: document.querySelector('.modal-product'),
   closeModalBtn: document.querySelector('.modal__close-btn'),
+  form: document.querySelector('.search-form'),
+  input: document.querySelector('.search-form__input'),
+  clearInputBtn: document.querySelector('.search-form__btn-clear'),
 };
